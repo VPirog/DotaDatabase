@@ -5,11 +5,11 @@ from .base_meta import Base
 
 
 class ItemGuide(Base):
-    __tablename__ = 'item_guide'
+    __tablename__ = 'ItemGuide'
     __table_args__ = {'extend_existing': True}
 
-    guide_id = Column('guide_id', ForeignKey('guide.id'), nullable=False),
-    item_id = Column('item_id', ForeignKey('item.id'))
+    guide_id = Column(ForeignKey('guide.id'), primary_key=True, nullable=False)
+    item_id = Column(ForeignKey('item.id'), primary_key=True, nullable=False)
 
-    item = relationship("Item", back_populates="items")
     guide = relationship("Guide", back_populates="guides")
+    item = relationship("Item", back_populates="items")

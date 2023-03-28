@@ -1,4 +1,4 @@
-from database import create_session, global_init, Hero
+from database import global_init, create_session, Hero
 
 global_init("dota")
 session = create_session()
