@@ -8,7 +8,6 @@ class Tournament(Base):
     __tablename__ = 'tournament'
     __table_args__ = {'extend_existing': True}
 
-
     id = Column(Integer, primary_key=True)
     series = Column(CHAR(20))
     organizer = Column(CHAR(20))
@@ -19,4 +18,3 @@ class Tournament(Base):
     admin = relationship('Admin')
 
     tournaments = relationship("TeamTournament", back_populates="tournament")
-
