@@ -11,3 +11,4 @@ from .proplayer import ProPlayer
 
 from .team_tournament import TeamTournament
 from .item_guide import ItemGuide
+from .user_rating import UserRating

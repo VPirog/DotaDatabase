@@ -10,9 +10,10 @@ class Guide(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(CHAR(99))
-    rating = Column(Integer)
+    rating = Column(Float)
     comment = Column(CHAR(99))
-    user_id = Column(ForeignKey('user.id'))
+    owner_user_id = Column(ForeignKey('user.id'))
     hero_id = Column(ForeignKey('hero.id'))
 
     guides = relationship("ItemGuide", back_populates="guide")
+    guideS_rating = relationship("UserRating", back_populates="guide_rating")
