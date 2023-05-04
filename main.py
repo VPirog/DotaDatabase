@@ -9,4 +9,4 @@ items = session.query(Item).all()
 for parent in items:
     print(parent)
 
-# parsing("https://liquipedia.net/dota2/Item_statistics")
+parsing("https://liquipedia.net/dota2/Item_statistics")
