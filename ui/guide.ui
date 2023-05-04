@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="user_name_label">
      <property name="font">
       <font>
        <family>Unbounded</family>
@@ -30,7 +30,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QTableWidget" name="guide_table">
      <property name="minimumSize">
       <size>
        <width>823</width>
@@ -79,7 +79,7 @@
      </column>
      <column>
       <property name="text">
-       <string>comment</string>
+       <string>descripton</string>
       </property>
      </column>
      <column>
@@ -100,7 +100,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="create_guide_bottom">
      <property name="font">
       <font>
        <family>Unbounded SemiBold</family>

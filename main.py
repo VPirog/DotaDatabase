@@ -4,9 +4,9 @@ from parse.parse import parsing
 global_init("postgres", "utezam", "localhost", "dota")
 session = create_session()
 
-heroes = session.query(Item).all()
+items = session.query(Item).all()
 
-for parent in heroes:
+for parent in items:
     print(parent)
 
-parsing("https://liquipedia.net/dota2/Hero_statistics")
+# parsing("https://liquipedia.net/dota2/Item_statistics")

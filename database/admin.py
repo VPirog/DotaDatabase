@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Float, CHAR
+from sqlalchemy import Column, Integer, Float, CHAR, ForeignKey
 from database import Base
 
 
@@ -7,6 +7,7 @@ class Admin(Base):
     __table_args__ = {'extend_existing': True}
 
 
-    id = Column(Integer, primary_key=True)
-    name = Column(CHAR(99), nullable=False)
-    phone = Column(CHAR(20))
+    id = Column(ForeignKey('user.id'), primary_key=True)
+    nickname = Column(CHAR(99), nullable=False)
+    password = Column(CHAR(20), nullable=False)
+    email = Column(Integer, nullable=False)

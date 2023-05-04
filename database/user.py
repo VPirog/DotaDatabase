@@ -8,8 +8,9 @@ class User(Base):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
-    name = Column(CHAR(99), nullable=False)
-    phone = Column(Integer)
-    password = Column(Integer, nullable=False)
+    username = Column(CHAR(99), nullable=False)
+    password = Column(CHAR(20), nullable=False)
+    country = Column(Integer, nullable=False)
 
     userS_rating = relationship("UserRating", back_populates="user_rating")
+    user_comments = relationship("GuideCommentary", back_populates="user_comment")

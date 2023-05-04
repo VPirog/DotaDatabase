@@ -5,10 +5,6 @@ from .guide import Guide
 from .hero import Hero
 from .item import Item
 
-from .team import Team
-from .tournament import Tournament
-from .proplayer import ProPlayer
-
-from .team_tournament import TeamTournament
+from .guide_commentary import GuideCommentary
 from .item_guide import ItemGuide
 from .user_rating import UserRating

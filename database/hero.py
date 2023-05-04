@@ -19,6 +19,7 @@ class Hero(Base):
     base_magic_res = Column(Float, nullable=False)
     base_move_speed = Column(SmallInteger, nullable=False)
     attack_type = Column(CHAR(6))
+    img = Column(CHAR(99))
 
 
 
