@@ -7,16 +7,16 @@ Base = dec.declarative_base()
 __factory = None
 
 
-def global_init(db_file):
+def global_init(user, password, host, db_name):
     global __factory
 
     if __factory:
         return
 
-    if not db_file:
+    if not db_name:
         raise AttributeError("Не задано имя файлы файла базы данных")
 
-    connection_string = f'postgresql://postgres:user@localhost:5432/{db_file}'
+    connection_string = f'postgresql://{user}:{password}@{host}:5432/{db_name}'
     print(f"Подключение к БД: {connection_string}")
 
     engine = sa.create_engine(connection_string, echo=True)
