@@ -28,3 +28,6 @@ class Item(Base):
     item_type = Column(CHAR(16))
 
     items = relationship("ItemGuide", back_populates="item")
+
+    def __str__(self):
+        return f"Айтем {self.id}: {self.name}"

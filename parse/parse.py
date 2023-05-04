@@ -9,7 +9,7 @@ def parsing(wikiurl):
     response = requests.get(wikiurl)
     # print(response.status_code)
 
-    if(response.status_code == 200):
+    if (response.status_code == 200):
         print("Успешное подключение")
 
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -19,10 +19,11 @@ def parsing(wikiurl):
     # convert list to dataframe
     df = pd.DataFrame(df[0])
     # print(df)
-    os.mkdir(os.getcwd() + "/parse_out")
-    with open('parse_out/out.csv', 'w'):
+    if (os.path.isdir('parse_out') == False):
+        os.mkdir(os.getcwd() + "/parse_out")
+    with open('parse_out/out.csv', 'w+'):
         df.to_csv('parse_out/out.csv')
-    with open('parse_out/out.xlsx', 'w'):
+    with open('parse_out/out.xlsx', 'w+'):
         df.to_excel('parse_out/out.xlsx', sheet_name='Sheet_name_1')
 
     # # drop the unwanted columns
