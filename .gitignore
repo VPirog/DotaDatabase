@@ -3,3 +3,4 @@ venv
 parse_out
 /dump.txt
 /dump.py
+config/config.ini
