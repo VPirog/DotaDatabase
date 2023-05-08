@@ -9,9 +9,12 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import QResource
+
 
 
 class Ui_MainWindow(object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(905, 626)
@@ -164,4 +167,3 @@ class Ui_MainWindow(object):
         self.lineEdit_password.setPlaceholderText(_translate("MainWindow", "Password"))
         self.pushButton_login.setText(_translate("MainWindow", "Login"))
         self.pushButton_sigh_in.setText(_translate("MainWindow", "Sign in"))
-
