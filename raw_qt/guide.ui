@@ -69,32 +69,22 @@
      </attribute>
      <column>
       <property name="text">
-       <string>hero</string>
+       <string>Name</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>name</string>
+       <string>Hero</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>descripton</string>
+       <string>Descripton</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>main_text</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>rating</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>user_rating</string>
+       <string>Rating</string>
       </property>
      </column>
     </widget>

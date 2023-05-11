@@ -5,6 +5,7 @@ import database
 from database import User
 from ui.ui_main import Ui_MainWindow
 from ui.register_ui import Registration
+from ui.guide_table_ui import GuideView
 
 
 class LoginScreen(QMainWindow, Ui_MainWindow):
@@ -29,7 +30,8 @@ class LoginScreen(QMainWindow, Ui_MainWindow):
         #     print(i)
         if isinstance(get_login, User):
             if password == get_login.password.strip():
-                print('yes')
+                self.guide_table = GuideView(get_login)
+                self.guide_table.exec_()
             else:
                 print('no')
 
