@@ -14,3 +14,6 @@ class User(Base):
 
     userS_rating = relationship("UserRating", back_populates="user_rating")
     user_comments = relationship("GuideCommentary", back_populates="user_comment")
+
+    def __str__(self):
+        return f"юзер {self.id}: {self.username} {self.password}"

@@ -1,18 +1,20 @@
 import configparser
 import sys
+import types
 
-from PyQt5.QtWidgets import QMainWindow, QApplication
-from database import global_init, create_session
+from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog
+import database
+from database import User
 from ui.ui_main import Ui_MainWindow
 
-# config = configparser.ConfigParser()
-# config.read('../config/config.ini')
+config = configparser.ConfigParser()
+config.read('config/config.ini')
 
-# database_host = config['database']['host']
-# database_port = config['database']['port']
-# database_username = config['database']['username']
-# database_password = config['database']['password']
-# database_name = config['database']['name']
+database_host = config['database']['host']
+database_port = config['database']['port']
+database_username = config['database']['username']
+database_password = config['database']['password']
+database_name = config['database']['name']
 
 
 class LoginScreen(QMainWindow, Ui_MainWindow):
@@ -22,10 +24,30 @@ class LoginScreen(QMainWindow, Ui_MainWindow):
         self.initUI()
 
     def initUI(self):
-        pass
-        # global_init(database_host, database_port, database_username, database_password, database_name)
-        # self.session = create_session()
+        database.global_init(database_host, database_port, database_username, database_password, database_name)
+        self.session = database.create_session()
+        self.pushButton_login.clicked.connect(self.login)
+        self.pushButton_sigh_in.clicked.connect(self.sing_in)
 
+    def login(self):
+        login = self.lineEdit_username.text()
+        password = self.lineEdit_password.text()
+        get_login = self.session.query(User).filter(User.username == str(login)).first()
+        # users = self.session.query(User).all()
+        # print(type(get_login))
+        # for i in users:
+        #     print(i)
+        if isinstance(get_login, User):
+            if password == get_login.password.strip():
+                print('yes')
+            else:
+                print('no')
+
+    def sing_in(self):
+        pass
+
+    def test(self):
+        print(1)
 
 
 def my_exception_hook(exctype, value, traceback):
@@ -41,5 +63,3 @@ sys._excepthook = sys.excepthook
 
 # Set the exception hook to our wrapping function
 sys.excepthook = my_exception_hook
-
-
