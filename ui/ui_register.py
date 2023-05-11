@@ -11,16 +11,16 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(905, 626)
-        MainWindow.setWindowTitle("")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.centralwidget)
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(905, 626)
+        Dialog.setWindowTitle("")
+        self.gridLayout = QtWidgets.QGridLayout(Dialog)
+        self.gridLayout.setObjectName("gridLayout")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.frame = QtWidgets.QFrame(self.centralwidget)
+        self.frame = QtWidgets.QFrame(Dialog)
         self.frame.setFrameShape(QtWidgets.QFrame.Panel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.frame.setLineWidth(5)
@@ -64,7 +64,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addLayout(self.verticalLayout_4)
         self.verticalLayout_5.addLayout(self.horizontalLayout_2)
         self.verticalLayout_2.addWidget(self.frame)
-        self.frame_2 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_2 = QtWidgets.QFrame(Dialog)
         self.frame_2.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.frame_2.setFrameShape(QtWidgets.QFrame.Panel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -103,7 +103,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addLayout(self.verticalLayout_3)
         self.verticalLayout_6.addLayout(self.horizontalLayout)
         self.verticalLayout_2.addWidget(self.frame_2)
-        self.frame_3 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_3 = QtWidgets.QFrame(Dialog)
         self.frame_3.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.frame_3.setFrameShape(QtWidgets.QFrame.Panel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -146,7 +146,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addItem(spacerItem)
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
-        self.pushButton_complite = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_complite = QtWidgets.QPushButton(Dialog)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -166,22 +166,17 @@ class Ui_MainWindow(object):
         self.pushButton_complite.setObjectName("pushButton_complite")
         self.verticalLayout.addWidget(self.pushButton_complite)
         self.verticalLayout_2.addLayout(self.verticalLayout)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 905, 29))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.gridLayout.addLayout(self.verticalLayout_2, 0, 0, 1, 1)
+        self.statusbar = QtWidgets.QStatusBar(Dialog)
+        self.statusbar.setGeometry(QtCore.QRect(0, 0, 3, 24))
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        self.lineEdit_username.setPlaceholderText(_translate("MainWindow", "Username"))
-        self.lineEdit_password.setPlaceholderText(_translate("MainWindow", "Password"))
-        self.lineEdit_country.setPlaceholderText(_translate("MainWindow", "Country"))
-        self.pushButton_complite.setText(_translate("MainWindow", "Complite"))
-import dota_rc
+        self.lineEdit_username.setPlaceholderText(_translate("Dialog", "Username"))
+        self.lineEdit_password.setPlaceholderText(_translate("Dialog", "Password"))
+        self.lineEdit_country.setPlaceholderText(_translate("Dialog", "Country"))
+        self.pushButton_complite.setText(_translate("Dialog", "Complite"))

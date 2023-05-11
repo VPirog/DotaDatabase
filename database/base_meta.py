@@ -36,3 +36,5 @@ def global_init(host=database_host, port=database_port, user=database_username, 
 
 def create_session():
     return __factory()
+
+
