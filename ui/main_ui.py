@@ -30,7 +30,7 @@ class LoginScreen(QMainWindow, Ui_MainWindow):
         #     print(i)
         if isinstance(get_login, User):
             if password == get_login.password.strip():
-                self.guide_table = GuideView(get_login)
+                self.guide_table = GuideView(get_login, self)
                 self.guide_table.exec_()
             else:
                 print('no')

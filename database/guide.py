@@ -23,3 +23,6 @@ class Guide(Base):
     guides = relationship("ItemGuide", back_populates="guide")
     guideS_rating = relationship("UserRating", back_populates="guide_rating")
     guide_comments = relationship("GuideCommentary", back_populates="guide_comment")
+
+    def __str__(self):
+        return f"gaid {self.id}: {self.name} {self.description}"

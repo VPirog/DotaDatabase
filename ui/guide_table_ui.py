@@ -4,20 +4,28 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog, QMessageBox, QDialog, QTableWidgetItem
 import database
 from database import User, Guide
+from ui.select_guide_create import CreateGuide
 from ui.ui_guide_table import Ui_Dialog
 
 
 class GuideView(QDialog, Ui_Dialog):
-    def __init__(self, login_structure):
+    def __init__(self, login_structure, old_window):
         super().__init__()
         self.setupUi(self)
+        old_window.close()
+        self.login_structure = login_structure
         self.user_name_label.setText(login_structure.username)
         self.initUI()
 
     def initUI(self):
         database.global_init()
         self.session = database.create_session()
+        self.create_guide_bottom.clicked.connect(self.create_)
         self.load_table()
+
+    def create_(self):
+        self.guide_table = CreateGuide(self.login_structure, self)
+        self.guide_table.exec_()
 
     def load_table(self):
         self.table_is_changeable = False
