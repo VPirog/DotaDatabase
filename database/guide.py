@@ -12,6 +12,7 @@ class Guide(Base):
     name = Column(CHAR(99))
     rating = Column(Float(53))
     description = Column(CHAR(399))
+    main_text = Column(CHAR(9999))
     owner_user_id = Column(ForeignKey('user.id'))
     hero_id = Column(ForeignKey('hero.id'))
 

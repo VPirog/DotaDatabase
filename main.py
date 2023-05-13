@@ -5,7 +5,7 @@ from database import global_init, create_session, Hero, Item, User
 from parse.parse import parsing
 import configparser
 import ui
-from ui import LoginScreen
+from ui import LoginScreen, CreateGuide
 
 config = configparser.ConfigParser()
 config.read('config/config.ini')
@@ -34,7 +34,7 @@ session = create_session()
 #     print(i)
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    ex = LoginScreen()
+    ex = CreateGuide()
     ex.show()
     sys.exit(app.exec())
 

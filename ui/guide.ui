@@ -15,26 +15,11 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="user_name_label">
-     <property name="font">
-      <font>
-       <family>Unbounded</family>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>ArrowCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>user</string>
-     </property>
-    </widget>
-   </item>
-   <item>
     <widget class="QTableWidget" name="guide_table">
      <property name="minimumSize">
       <size>
-       <width>823</width>
-       <height>389</height>
+       <width>833</width>
+       <height>390</height>
       </size>
      </property>
      <property name="font">
@@ -79,12 +64,7 @@
      </column>
      <column>
       <property name="text">
-       <string>descripton</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>main_text</string>
+       <string>user_rating</string>
       </property>
      </column>
      <column>
@@ -92,11 +72,21 @@
        <string>rating</string>
       </property>
      </column>
-     <column>
-      <property name="text">
-       <string>user_rating</string>
-      </property>
-     </column>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="user_name_label">
+     <property name="font">
+      <font>
+       <family>Unbounded</family>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>user</string>
+     </property>
     </widget>
    </item>
    <item>
