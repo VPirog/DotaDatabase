@@ -10,4 +10,4 @@ class Admin(Base):
     id = Column(ForeignKey('user.id'), primary_key=True)
     nickname = Column(CHAR(99), nullable=False)
     password = Column(CHAR(20), nullable=False)
-    email = Column(Integer, nullable=False)
+    email = Column(CHAR(30), nullable=False)

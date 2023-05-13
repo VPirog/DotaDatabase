@@ -14,6 +14,7 @@ class Guide(Base):
     description = Column(CHAR(399))
     owner_user_id = Column(ForeignKey('user.id'))
     hero_id = Column(ForeignKey('hero.id'))
+    main_text = Column(CHAR(9999))
 
     hero = relationship('Hero')
     owner_user = relationship('User')
