@@ -22,7 +22,7 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
         self.guide_structure = guide_structure
         self.session = create_session()
         self.old_guide = self.session.query(Guide).get(self.guide_structure.id)
-        print(self.old_guide)
+        # print(self.old_guide)
         self.initUI()
 
     def initUI(self):
@@ -96,13 +96,13 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
         self.tableWidget.setItem(4, 0, item)
 
         session = create_session()
-        tmp = session.query(GuideCommentary).filter(GuideCommentary.guide_id == self.guide_structure.id).all()
-        # TODO: bug выводится одно значение, а не все
-        print(tmp, type(tmp))
+        tmp = session.query(GuideCommentary.guide_id, GuideCommentary.user_id, GuideCommentary.commentary).filter(
+            GuideCommentary.guide_id == self.guide_structure.id).all()
+        # print(tmp, type(tmp))
         for row_pos, commentary_i in enumerate(tmp, start=6):
             self.tableWidget.insertRow(row_pos)
             item = QTableWidgetItem()
-            item.setText(session.query(User).filter(User.id == commentary_i.user_id).first().username.strip())
+            item.setText("Comment by " + session.query(User).filter(User.id == commentary_i.user_id).first().username.strip())
             self.tableWidget.setVerticalHeaderItem(row_pos, item)
             item = QTableWidgetItem()
             item.setText(commentary_i.commentary)

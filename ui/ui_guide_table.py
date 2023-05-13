@@ -28,7 +28,7 @@ class Ui_Dialog(object):
         self.guide_table.setMinimumSize(QtCore.QSize(823, 389))
         font = QtGui.QFont()
         font.setFamily("Unbounded Medium")
-        font.setPointSize(8)
+        font.setPointSize(12)
         self.guide_table.setFont(font)
         self.guide_table.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.guide_table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)

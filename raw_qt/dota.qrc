@@ -4,4 +4,339 @@
     <file>User Accounts.png</file>
     <file>Key.png</file>
   </qresource>
+  <qresource prefix="Hero">
+    <file>raw_hero/Zeus icon.png</file>
+    <file>raw_hero/Wraith King icon.png</file>
+    <file>raw_hero/Witch Doctor icon.png</file>
+    <file>raw_hero/Winter Wyvern icon.png</file>
+    <file>raw_hero/Windranger icon.png</file>
+    <file>raw_hero/Weaver icon.png</file>
+    <file>raw_hero/Warlock icon.png</file>
+    <file>raw_hero/Void Spirit icon.png</file>
+    <file>raw_hero/Visage icon.png</file>
+    <file>raw_hero/Viper icon.png</file>
+    <file>raw_hero/Venomancer icon.png</file>
+    <file>raw_hero/Vengeful Spirit icon.png</file>
+    <file>raw_hero/Ursa icon.png</file>
+    <file>raw_hero/Undying icon.png</file>
+    <file>raw_hero/Underlord icon.png</file>
+    <file>raw_hero/Tusk icon.png</file>
+    <file>raw_hero/Troll Warlord icon.png</file>
+    <file>raw_hero/Treant Protector icon.png</file>
+    <file>raw_hero/Tiny icon.png</file>
+    <file>raw_hero/Tinker icon.png</file>
+    <file>raw_hero/Timbersaw icon.png</file>
+    <file>raw_hero/Tidehunter icon.png</file>
+    <file>raw_hero/Terrorblade icon.png</file>
+    <file>raw_hero/Templar Assassin icon.png</file>
+    <file>raw_hero/Techies icon.png</file>
+    <file>raw_hero/Sven icon.png</file>
+    <file>raw_hero/Storm Spirit icon.png</file>
+    <file>raw_hero/Spirit Breaker icon.png</file>
+    <file>raw_hero/Spectre icon.png</file>
+    <file>raw_hero/Sniper icon.png</file>
+    <file>raw_hero/Snapfire icon.png</file>
+    <file>raw_hero/Slark icon.png</file>
+    <file>raw_hero/Slardar icon.png</file>
+    <file>raw_hero/Skywrath Mage icon.png</file>
+    <file>raw_hero/Skeleton King icon.png</file>
+    <file>raw_hero/Silencer icon.png</file>
+    <file>raw_hero/Shadow Shaman icon.png</file>
+    <file>raw_hero/Shadow Fiend icon.png</file>
+    <file>raw_hero/Shadow Demon icon.png</file>
+    <file>raw_hero/Sand King icon.png</file>
+    <file>raw_hero/Rubick icon.png</file>
+    <file>raw_hero/Riki icon.png</file>
+    <file>raw_hero/Razor icon.png</file>
+    <file>raw_hero/Queen of Pain icon.png</file>
+    <file>raw_hero/Pugna icon.png</file>
+    <file>raw_hero/Pudge icon.png</file>
+    <file>raw_hero/Puck icon.png</file>
+    <file>raw_hero/Primal Beast icon.png</file>
+    <file>raw_hero/Phoenix icon.png</file>
+    <file>raw_hero/Phantom Lancer icon.png</file>
+    <file>raw_hero/Phantom Assassin icon.png</file>
+    <file>raw_hero/Pangolier icon.png</file>
+    <file>raw_hero/Outworld Destroyer icon.png</file>
+    <file>raw_hero/Oracle icon.png</file>
+    <file>raw_hero/Omniknight icon.png</file>
+    <file>raw_hero/Ogre Magi icon.png</file>
+    <file>raw_hero/Nyx Assassin icon.png</file>
+    <file>raw_hero/Night Stalker icon.png</file>
+    <file>raw_hero/Necrophos icon.png</file>
+    <file>raw_hero/Nature's Prophet icon.png</file>
+    <file>raw_hero/Naga Siren icon.png</file>
+    <file>raw_hero/Muerta icon.png</file>
+    <file>raw_hero/Morphling icon.png</file>
+    <file>raw_hero/Monkey King icon.png</file>
+    <file>raw_hero/Mirana icon.png</file>
+    <file>raw_hero/Meepo icon.png</file>
+    <file>raw_hero/Medusa icon.png</file>
+    <file>raw_hero/Mars icon.png</file>
+    <file>raw_hero/Marci icon.png</file>
+    <file>raw_hero/Magnus icon.png</file>
+    <file>raw_hero/Lycan icon.png</file>
+    <file>raw_hero/Luna icon.png</file>
+    <file>raw_hero/Lone Druid icon.png</file>
+    <file>raw_hero/Lion icon.png</file>
+    <file>raw_hero/Lina icon.png</file>
+    <file>raw_hero/Lifestealer icon.png</file>
+    <file>raw_hero/Lich icon.png</file>
+    <file>raw_hero/Leshrac icon.png</file>
+    <file>raw_hero/Legion Commander icon.png</file>
+    <file>raw_hero/Kunkka icon.png</file>
+    <file>raw_hero/Keeper of the Light icon.png</file>
+    <file>raw_hero/Juggernaut icon.png</file>
+    <file>raw_hero/Jakiro icon.png</file>
+    <file>raw_hero/Io icon.png</file>
+    <file>raw_hero/Invoker icon.png</file>
+    <file>raw_hero/Huskar icon.png</file>
+    <file>raw_hero/Hoodwink icon.png</file>
+    <file>raw_hero/Gyrocopter icon.png</file>
+    <file>raw_hero/Grimstroke icon.png</file>
+    <file>raw_hero/Faceless Void icon.png</file>
+    <file>raw_hero/Enigma icon.png</file>
+    <file>raw_hero/Enchantress icon.png</file>
+    <file>raw_hero/Ember Spirit icon.png</file>
+    <file>raw_hero/Elder Titan icon.png</file>
+    <file>raw_hero/Earth Spirit icon.png</file>
+    <file>raw_hero/Earthshaker icon.png</file>
+    <file>raw_hero/Drow Ranger icon.png</file>
+    <file>raw_hero/Dragon Knight icon.png</file>
+    <file>raw_hero/Doom icon.png</file>
+    <file>raw_hero/Disruptor icon.png</file>
+    <file>raw_hero/Death Prophet icon.png</file>
+    <file>raw_hero/Dazzle icon.png</file>
+    <file>raw_hero/Dawnbreaker icon.png</file>
+    <file>raw_hero/Dark Willow icon.png</file>
+    <file>raw_hero/Dark Seer icon.png</file>
+    <file>raw_hero/Crystal Maiden icon.png</file>
+    <file>raw_hero/Clockwerk icon.png</file>
+    <file>raw_hero/Clinkz icon.png</file>
+    <file>raw_hero/Chen icon.png</file>
+    <file>raw_hero/Chaos Knight icon.png</file>
+    <file>raw_hero/Centaur Warrunner icon.png</file>
+    <file>raw_hero/Broodmother icon.png</file>
+    <file>raw_hero/Bristleback icon.png</file>
+    <file>raw_hero/Brewmaster icon.png</file>
+    <file>raw_hero/Bounty Hunter icon.png</file>
+    <file>raw_hero/Bloodseeker icon.png</file>
+    <file>raw_hero/Beastmaster icon.png</file>
+    <file>raw_hero/Batrider icon.png</file>
+    <file>raw_hero/Bane icon.png</file>
+    <file>raw_hero/Axe icon.png</file>
+    <file>raw_hero/Arc Warden icon.png</file>
+    <file>raw_hero/Anti-Mage icon.png</file>
+  </qresource>
+  <qresource prefix="Item">
+    <file>raw_item/Yasha icon.png</file>
+    <file>raw_item/Yasha and Kaya icon.png</file>
+    <file>raw_item/Wraith Band icon.png</file>
+    <file>raw_item/Witch Blade icon.png</file>
+    <file>raw_item/Wind Waker icon.png</file>
+    <file>raw_item/Wind Lace icon.png</file>
+    <file>raw_item/Voodoo Mask icon.png</file>
+    <file>raw_item/Void Stone icon.png</file>
+    <file>raw_item/Vladmir's Offering icon.png</file>
+    <file>raw_item/Vitality Booster icon.png</file>
+    <file>raw_item/Veil of Discord icon.png</file>
+    <file>raw_item/Vanguard icon.png</file>
+    <file>raw_item/Tranquil Boots (Active) icon.png</file>
+    <file>raw_item/Town Portal Scroll icon.png</file>
+    <file>raw_item/Tome of Knowledge icon.png</file>
+    <file>raw_item/Tango (Shared) icon.png</file>
+    <file>raw_item/Tango icon.png</file>
+    <file>raw_item/Talisman of Evasion icon.png</file>
+    <file>raw_item/Swift Blink icon.png</file>
+    <file>raw_item/Stout Shield icon.png</file>
+    <file>raw_item/Staff of Wizardry icon.png</file>
+    <file>raw_item/Spirit Vessel icon.png</file>
+    <file>raw_item/Soul Ring icon.png</file>
+    <file>raw_item/Soul Booster icon.png</file>
+    <file>raw_item/Solar Crest icon.png</file>
+    <file>raw_item/Smoke of Deceit icon.png</file>
+    <file>raw_item/Slippers of Agility icon.png</file>
+    <file>raw_item/Skull Basher icon.png</file>
+    <file>raw_item/Silver Edge icon.png</file>
+    <file>raw_item/Shiva's Guard icon.png</file>
+    <file>raw_item/Shadow Blade icon.png</file>
+    <file>raw_item/Shadow Amulet icon.png</file>
+    <file>raw_item/Sentry Ward icon.png</file>
+    <file>raw_item/Scythe of Vyse icon.png</file>
+    <file>raw_item/Satanic icon.png</file>
+    <file>raw_item/Sange icon.png</file>
+    <file>raw_item/Sange and Yasha icon.png</file>
+    <file>raw_item/Sage's Mask icon.png</file>
+    <file>raw_item/Sacred Relic icon.png</file>
+    <file>raw_item/Rod of Atos icon.png</file>
+    <file>raw_item/Robe of the Magi icon.png</file>
+    <file>raw_item/Ring of Tarrasque icon.png</file>
+    <file>raw_item/Ring of Regen icon.png</file>
+    <file>raw_item/Ring of Protection icon.png</file>
+    <file>raw_item/Ring of Health icon.png</file>
+    <file>raw_item/Ring of Basilius (Inactive) icon.png</file>
+    <file>raw_item/Ring of Basilius (Active) icon.png</file>
+    <file>raw_item/Revenant's Brooch icon.png</file>
+    <file>raw_item/Refresher Orb icon.png</file>
+    <file>raw_item/Reaver icon.png</file>
+    <file>raw_item/Radiance (Inactive) icon.png</file>
+    <file>raw_item/Radiance (Active) icon.png</file>
+    <file>raw_item/Quelling Blade icon.png</file>
+    <file>raw_item/Quarterstaff icon.png</file>
+    <file>raw_item/Power Treads (Strength) icon.png</file>
+    <file>raw_item/Power Treads (Intelligence) icon.png</file>
+    <file>raw_item/Power Treads icon.png</file>
+    <file>raw_item/Power Treads (Agility) icon.png</file>
+    <file>raw_item/Power Treads (Agility Colorblind) icon.png</file>
+    <file>raw_item/Point Booster icon.png</file>
+    <file>raw_item/Platemail icon.png</file>
+    <file>raw_item/Pipe of Insight icon.png</file>
+    <file>raw_item/Phase Boots icon.png</file>
+    <file>raw_item/Perseverance icon.png</file>
+    <file>raw_item/Overwhelming Blink icon.png</file>
+    <file>raw_item/Orchid Malevolence icon.png</file>
+    <file>raw_item/Orb of Venom icon.png</file>
+    <file>raw_item/Orb of Corrosion icon.png</file>
+    <file>raw_item/Ogre Axe icon.png</file>
+    <file>raw_item/Octarine Core icon.png</file>
+    <file>raw_item/Observer Ward icon.png</file>
+    <file>raw_item/Observer and Sentry Wards 2 icon.png</file>
+    <file>raw_item/Observer and Sentry Wards 1 icon.png</file>
+    <file>raw_item/Oblivion Staff icon.png</file>
+    <file>raw_item/Null Talisman icon.png</file>
+    <file>raw_item/Nullifier icon.png</file>
+    <file>raw_item/Necronomicon 3 icon.png</file>
+    <file>raw_item/Necronomicon 2 icon.png</file>
+    <file>raw_item/Necronomicon 1 icon.png</file>
+    <file>raw_item/Mystic Staff icon.png</file>
+    <file>raw_item/Morbid Mask icon.png</file>
+    <file>raw_item/Moon Shard icon.png</file>
+    <file>raw_item/Monkey King Bar icon.png</file>
+    <file>raw_item/Mjollnir icon.png</file>
+    <file>raw_item/Mithril Hammer icon.png</file>
+    <file>raw_item/Meteor Hammer icon.png</file>
+    <file>raw_item/Mekansm icon.png</file>
+    <file>raw_item/Medallion of Courage icon.png</file>
+    <file>raw_item/Mask of Madness icon.png</file>
+    <file>raw_item/Mantle of Intelligence icon.png</file>
+    <file>raw_item/Manta Style icon.png</file>
+    <file>raw_item/Magic Wand icon.png</file>
+    <file>raw_item/Magic Stick icon.png</file>
+    <file>raw_item/Mage Slayer icon.png</file>
+    <file>raw_item/Maelstrom icon.png</file>
+    <file>raw_item/Lotus Orb icon.png</file>
+    <file>raw_item/Linken's Sphere icon.png</file>
+    <file>raw_item/Kaya icon.png</file>
+    <file>raw_item/Kaya and Sange icon.png</file>
+    <file>raw_item/Javelin icon.png</file>
+    <file>raw_item/Iron Branch icon.png</file>
+    <file>raw_item/Infused Raindrops icon.png</file>
+    <file>raw_item/Hyperstone icon.png</file>
+    <file>raw_item/Hurricane Pike icon.png</file>
+    <file>raw_item/Hood of Defiance icon.png</file>
+    <file>raw_item/Holy Locket icon.png</file>
+    <file>raw_item/Helm of the Overlord icon.png</file>
+    <file>raw_item/Helm of the Dominator icon.png</file>
+    <file>raw_item/Helm of Iron Will icon.png</file>
+    <file>raw_item/Heaven's Halberd icon.png</file>
+    <file>raw_item/Heart of Tarrasque icon.png</file>
+    <file>raw_item/Healing Salve icon.png</file>
+    <file>raw_item/Headdress icon.png</file>
+    <file>raw_item/Hand of Midas icon.png</file>
+    <file>raw_item/Guardian Greaves icon.png</file>
+    <file>raw_item/Gloves of Haste icon.png</file>
+    <file>raw_item/Glimmer Cape icon.png</file>
+    <file>raw_item/Gleipnir icon.png</file>
+    <file>raw_item/Ghost Scepter icon.png</file>
+    <file>raw_item/Gem of True Sight icon.png</file>
+    <file>raw_item/Gauntlets of Strength icon.png</file>
+    <file>raw_item/Force Staff icon.png</file>
+    <file>raw_item/Flying Courier (Radiant) icon.png</file>
+    <file>raw_item/Flying Courier (Dire) icon.png</file>
+    <file>raw_item/Fluffy Hat icon.png</file>
+    <file>raw_item/Falcon Blade icon.png</file>
+    <file>raw_item/Faerie Fire icon.png</file>
+    <file>raw_item/Eye of Skadi icon.png</file>
+    <file>raw_item/Eul's Scepter of Divinity icon.png</file>
+    <file>raw_item/Ethereal Blade icon.png</file>
+    <file>raw_item/Eternal Shroud icon.png</file>
+    <file>raw_item/Energy Booster icon.png</file>
+    <file>raw_item/Enchanted Mango icon.png</file>
+    <file>raw_item/Echo Sabre icon.png</file>
+    <file>raw_item/Eaglesong icon.png</file>
+    <file>raw_item/Dust of Appearance icon.png</file>
+    <file>raw_item/Drum of Endurance icon.png</file>
+    <file>raw_item/Dragon Lance icon.png</file>
+    <file>raw_item/Divine Rapier icon.png</file>
+    <file>raw_item/Diffusal Blade 2 icon.png</file>
+    <file>raw_item/Diffusal Blade 1 icon.png</file>
+    <file>raw_item/Desolator icon.png</file>
+    <file>raw_item/Demon Edge icon.png</file>
+    <file>raw_item/Dagon 5 icon.png</file>
+    <file>raw_item/Dagon 4 icon.png</file>
+    <file>raw_item/Dagon 3 icon.png</file>
+    <file>raw_item/Dagon 2 icon.png</file>
+    <file>raw_item/Dagon 1 icon.png</file>
+    <file>raw_item/Daedalus icon.png</file>
+    <file>raw_item/Crystalys icon.png</file>
+    <file>raw_item/Crown icon.png</file>
+    <file>raw_item/Crimson Guard icon.png</file>
+    <file>raw_item/Cloak icon.png</file>
+    <file>raw_item/Claymore icon.png</file>
+    <file>raw_item/Clarity icon.png</file>
+    <file>raw_item/Circlet icon.png</file>
+    <file>raw_item/Cheese icon.png</file>
+    <file>raw_item/Chainmail icon.png</file>
+    <file>raw_item/Butterfly icon.png</file>
+    <file>raw_item/Buckler (Inactive) icon.png</file>
+    <file>raw_item/Buckler (Active) icon.png</file>
+    <file>raw_item/Broadsword icon.png</file>
+    <file>raw_item/Bracer icon.png</file>
+    <file>raw_item/Bottle (Wisdom) icon.png</file>
+    <file>raw_item/Bottle (Water) icon.png</file>
+    <file>raw_item/Bottle (Small) icon.png</file>
+    <file>raw_item/Bottle (Shield) icon.png</file>
+    <file>raw_item/Bottle (Regeneration) icon.png</file>
+    <file>raw_item/Bottle (Medium) icon.png</file>
+    <file>raw_item/Bottle (Invisibility) icon.png</file>
+    <file>raw_item/Bottle (Illusion) icon.png</file>
+    <file>raw_item/Bottle (Haste) icon.png</file>
+    <file>raw_item/Bottle (Full) icon.png</file>
+    <file>raw_item/Bottle (Empty) icon.png</file>
+    <file>raw_item/Bottle (Double Damage) icon.png</file>
+    <file>raw_item/Bottle (Bounty) icon.png</file>
+    <file>raw_item/Bottle (Arcane) icon.png</file>
+    <file>raw_item/Boots of Travel 2 icon.png</file>
+    <file>raw_item/Boots of Travel 1 icon.png</file>
+    <file>raw_item/Boots of Speed icon.png</file>
+    <file>raw_item/Bloodthorn icon.png</file>
+    <file>raw_item/Bloodstone icon.png</file>
+    <file>raw_item/Blitz Knuckles icon.png</file>
+    <file>raw_item/Blink Dagger icon.png</file>
+    <file>raw_item/Blight Stone icon.png</file>
+    <file>raw_item/Blades of Attack icon.png</file>
+    <file>raw_item/Blade of Alacrity icon.png</file>
+    <file>raw_item/Blade Mail icon.png</file>
+    <file>raw_item/Black King Bar icon.png</file>
+    <file>raw_item/Belt of Strength icon.png</file>
+    <file>raw_item/Battle Fury icon.png</file>
+    <file>raw_item/Band of Elvenskin icon.png</file>
+    <file>raw_item/Banana icon.png</file>
+    <file>raw_item/Assault Cuirass icon.png</file>
+    <file>raw_item/Armlet of Mordiggian (Inactive) icon.png</file>
+    <file>raw_item/Armlet of Mordiggian (Active) icon.png</file>
+    <file>raw_item/Arcane Boots icon.png</file>
+    <file>raw_item/Arcane Blink icon.png</file>
+    <file>raw_item/Animal Courier (Radiant) icon.png</file>
+    <file>raw_item/Animal Courier (Dire) icon.png</file>
+    <file>raw_item/Aghanim's Shard - Roshan icon.png</file>
+    <file>raw_item/Aghanim's Shard icon.png</file>
+    <file>raw_item/Aghanim's Scepter icon.png</file>
+    <file>raw_item/Aghanim's Scepter (2020 Summer Event) 2 icon.png</file>
+    <file>raw_item/Aghanim's Scepter (2020 Summer Event) 1 icon.png</file>
+    <file>raw_item/Aghanim's Blessing - Roshan icon.png</file>
+    <file>raw_item/Aghanim's Blessing icon.png</file>
+    <file>raw_item/Aether Lens icon.png</file>
+    <file>raw_item/Aeon Disk icon.png</file>
+  </qresource>
 </RCC>

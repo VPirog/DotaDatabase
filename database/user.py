@@ -11,6 +11,7 @@ class User(Base):
     username = Column(CHAR(99), nullable=False)
     password = Column(CHAR(20), nullable=False)
     country = Column(Integer, nullable=False)
+    # TODO: страны числа это какой крин дж
 
     userS_rating = relationship("UserRating", back_populates="user_rating")
     user_comments = relationship("GuideCommentary", back_populates="user_comment")
