@@ -30,7 +30,9 @@ def global_init(host=database_host, port=database_port, user=database_username, 
     connection_string = f'postgresql://{user}:{password}@{host}:{port}/{db_name}'
     print(f"Подключение к БД: {connection_string}")
 
-    engine = sa.create_engine(connection_string, echo=True)
+    # engine = sa.create_engine(connection_string, echo=True)
+    engine = sa.create_engine(connection_string)
+
     __factory = orm.sessionmaker(engine)
 
 

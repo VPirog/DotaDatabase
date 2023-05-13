@@ -1,6 +1,6 @@
 import configparser
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog
+from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog, QMessageBox
 import database
 from database import User
 from ui.ui_main import Ui_MainWindow
@@ -13,6 +13,7 @@ class LoginScreen(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.initUI()
+        # self.login()  # Debug
 
     def initUI(self):
         database.global_init()
@@ -23,6 +24,8 @@ class LoginScreen(QMainWindow, Ui_MainWindow):
     def login(self):
         login = self.lineEdit_username.text()
         password = self.lineEdit_password.text()
+        # login = str(1)
+        # password = str(1)
         get_login = self.session.query(User).filter(User.username == str(login)).first()
         # users = self.session.query(User).all()
         # print(type(get_login))
@@ -33,7 +36,15 @@ class LoginScreen(QMainWindow, Ui_MainWindow):
                 self.guide_table = GuideView(get_login, self)
                 self.guide_table.exec_()
             else:
-                print('no')
+                QMessageBox.critical(self,
+                                     "Error",
+                                     'Wrong password',
+                                     QMessageBox.Retry)
+        else:
+            QMessageBox.critical(self,
+                                 "Error",
+                                 'Account not exist',
+                                 QMessageBox.Retry)
 
     def sign_in(self):
         self.registation = Registration()

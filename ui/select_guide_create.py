@@ -19,10 +19,6 @@ class CreateGuide(QDialog, Ui_Dialog):
         old_window.close()
         self.initUI()
         self.login_structure = login_structure
-        # self.lineEdit_name = QLineEdit()
-        # self.lineEdit_hero = QLineEdit()
-        # self.lineEdit_description = QLineEdit()
-        # self.lineEdit_main_text = QLineEdit()
 
     def initUI(self):
         database.global_init()
@@ -32,7 +28,6 @@ class CreateGuide(QDialog, Ui_Dialog):
 
     def save(self):
         session = create_session()
-        guide = self.session.query(Guide).first()
         _name = self.tableWidget.item(0, 0).text()
         _hero = self.tableWidget.item(1, 0).text()
         _description = self.tableWidget.item(3, 0).text()
@@ -50,13 +45,15 @@ class CreateGuide(QDialog, Ui_Dialog):
         )
         session.add(new_guide)
         session.commit()
-        from ui import GuideView
 
-        self.guide_table = GuideView(self.login_structure , self)
-        self.guide_table.exec_()
+        from ui import GuideView
+        self.tableWidget = GuideView(self.login_structure, self)
+        self.tableWidget.exec_()
 
     def quit(self):
-        self.close()
+        from ui import GuideView
+        self.tableWidget = GuideView(self.login_structure, self)
+        self.tableWidget.exec_()
 
 
 def my_exception_hook(exctype, value, traceback):

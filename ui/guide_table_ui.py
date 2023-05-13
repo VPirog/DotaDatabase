@@ -1,9 +1,10 @@
 import sys
 
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QModelIndex
 from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog, QMessageBox, QDialog, QTableWidgetItem
 import database
 from database import User, Guide
+from ui.select_guide_change_or_view_ui import SelectGuideChangeOrView
 from ui.select_guide_create import CreateGuide
 from ui.ui_guide_table import Ui_Dialog
 
@@ -22,10 +23,11 @@ class GuideView(QDialog, Ui_Dialog):
         self.session = database.create_session()
         self.create_guide_bottom.clicked.connect(self.create_)
         self.load_table()
+        self.guide_table.doubleClicked.connect(self.change_or_view_guide)
 
     def create_(self):
-        self.guide_table = CreateGuide(self.login_structure, self)
-        self.guide_table.exec_()
+        self.open_create_guide = CreateGuide(self.login_structure, self)
+        self.open_create_guide.exec_()
 
     def load_table(self):
         self.table_is_changeable = False
@@ -47,6 +49,14 @@ class GuideView(QDialog, Ui_Dialog):
             tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
             self.guide_table.setItem(row_position, 3, tmp)
         self.table_is_changeable = True
+
+    def change_or_view_guide(self, index: QModelIndex):
+        current_row = index.row()
+        row_name = self.guide_table.item(current_row, 0).text()
+        guide_structure = self.session.query(Guide).filter(Guide.name == str(row_name).strip()).first()
+        self.open_change_or_view_guide = SelectGuideChangeOrView(self.login_structure, self, guide_structure)
+        self.open_change_or_view_guide.exec_()
+        self.load_table()
 
 
 def my_exception_hook(exctype, value, traceback):

@@ -11,6 +11,9 @@ class Guide(Base):
     id = Column(Integer, primary_key=True)
     name = Column(CHAR(99))
     rating = Column(Float(53))
+
+    # TODO: update rating on update guide
+
     description = Column(CHAR(399))
     main_text = Column(CHAR(9999))
     owner_user_id = Column(ForeignKey('user.id'))

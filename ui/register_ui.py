@@ -31,6 +31,7 @@ class Registration(QDialog, Ui_Dialog):
             if success:
                 self.session.add(user)
                 self.session.commit()
+                self.close()
             else:
                 QMessageBox.critical(self,
                                      "Error",
