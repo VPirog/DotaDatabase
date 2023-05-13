@@ -36,7 +36,7 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
             self.old_guide.name = self.tableWidget.item(0, 0).text()
             self.old_guide.description = self.tableWidget.item(3, 0).text()
             self.old_guide.main_text = self.tableWidget.item(4, 0).text()
-
+            # TODO: Залочить ячейку овнеру ставить оценку и писать коммент
             self.session.commit()
 
             from ui import GuideView
@@ -44,14 +44,29 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
             self.tableWidget.exec_()
         else:
             session = create_session()
-            rating = self.tableWidget.item(2, 0).text()
+
+            rating = int(float(self.tableWidget.item(2, 0).text()))
             rate = UserRating(
                 user_id=self.login_structure.id,
                 guide_id=self.guide_structure.id,
                 rating=rating
             )
             # TODO: Удалять старую оценку и создавать новую оценку ВСЕГДА и тогда обновлять рейтинг всех(?) гайдов
+            t = session.query(UserRating).filter(UserRating.user_id == rate.user_id,
+                                                 UserRating.guide_id == rate.guide_id).first()
+            if isinstance(t, UserRating):
+                session.delete(t)
             session.add(rate)
+            session.commit()
+
+            session = create_session()
+            commnent = self.tableWidget.item(5, 0).text()
+            com = GuideCommentary(
+                user_id=self.login_structure.id,
+                guide_id=self.guide_structure.id,
+                commentary=commnent
+            )
+            session.add(com)
             session.commit()
 
             from ui import GuideView
@@ -71,7 +86,7 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
         item.setText(self.guide_structure.hero.name)
         self.tableWidget.setItem(1, 0, item)
         item = QTableWidgetItem()
-        item.setText(self.guide_structure.name)
+        item.setText(str(self.guide_structure.rating))
         self.tableWidget.setItem(2, 0, item)
         item = QTableWidgetItem()
         item.setText(self.guide_structure.description)
@@ -82,6 +97,7 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
 
         session = create_session()
         tmp = session.query(GuideCommentary).filter(GuideCommentary.guide_id == self.guide_structure.id).all()
+        # TODO: bug выводится одно значение, а не все
         print(tmp, type(tmp))
         for row_pos, commentary_i in enumerate(tmp, start=6):
             self.tableWidget.insertRow(row_pos)
