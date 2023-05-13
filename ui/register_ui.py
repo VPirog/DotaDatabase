@@ -1,15 +1,12 @@
 import configparser
 import sys
-import types
-
-from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog
+from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog, QMessageBox, QDialog
 import database
 from database import User
-from ui.ui_main import Ui_MainWindow
+from ui.ui_register import Ui_Dialog
 
 
-
-class LoginScreen(QMainWindow, Ui_MainWindow):
+class Registration(QDialog, Ui_Dialog):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -18,28 +15,31 @@ class LoginScreen(QMainWindow, Ui_MainWindow):
     def initUI(self):
         database.global_init()
         self.session = database.create_session()
-        self.pushButton_login.clicked.connect(self.login)
-        self.pushButton_sigh_in.clicked.connect(self.sing_in)
-
-    def login(self):
-        login = self.lineEdit_username.text()
-        password = self.lineEdit_password.text()
-        get_login = self.session.query(User).filter(User.username == str(login)).first()
-        # users = self.session.query(User).all()
-        # print(type(get_login))
-        # for i in users:
-        #     print(i)
-        if isinstance(get_login, User):
-            if password == get_login.password.strip():
-                print('yes')
-            else:
-                print('no')
+        self.pushButton_complite.clicked.connect(self.sing_in)
 
     def sing_in(self):
-        pass
+        username = self.lineEdit_username.text()
+        password = self.lineEdit_password.text()
+        country = self.lineEdit_country.text()
+        user = User(username=username,
+                    password=password,
+                    country=country)
+        try:
+            country_id = int(country)
+            success = isinstance(username, str) and isinstance(password, str) and isinstance(country_id,
+                                                                                             int) and username != '' and password != ''
+            if success:
+                self.session.add(user)
+                self.session.commit()
+            else:
+                QMessageBox.critical(self,
+                                     "Error",
+                                     'Information wrong format! \nTry Login and Password as string',
+                                     QMessageBox.Retry)
 
-    def test(self):
-        print(1)
+        except ValueError:
+            # Handle the exception
+            QMessageBox.critical(self, "Error", "Country Id not integer", QMessageBox.Retry)
 
 
 def my_exception_hook(exctype, value, traceback):

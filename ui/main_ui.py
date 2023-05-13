@@ -1,20 +1,11 @@
 import configparser
 import sys
-import types
-
 from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog
 import database
 from database import User
 from ui.ui_main import Ui_MainWindow
-
-config = configparser.ConfigParser()
-config.read('config/config.ini')
-
-database_host = config['database']['host']
-database_port = config['database']['port']
-database_username = config['database']['username']
-database_password = config['database']['password']
-database_name = config['database']['name']
+from ui.register_ui import Registration
+from ui.guide_table_ui import GuideView
 
 
 class LoginScreen(QMainWindow, Ui_MainWindow):
@@ -24,10 +15,10 @@ class LoginScreen(QMainWindow, Ui_MainWindow):
         self.initUI()
 
     def initUI(self):
-        database.global_init(database_host, database_port, database_username, database_password, database_name)
+        database.global_init()
         self.session = database.create_session()
         self.pushButton_login.clicked.connect(self.login)
-        self.pushButton_sigh_in.clicked.connect(self.sing_in)
+        self.pushButton_sigh_in.clicked.connect(self.sign_in)
 
     def login(self):
         login = self.lineEdit_username.text()
@@ -39,15 +30,14 @@ class LoginScreen(QMainWindow, Ui_MainWindow):
         #     print(i)
         if isinstance(get_login, User):
             if password == get_login.password.strip():
-                print('yes')
+                self.guide_table = GuideView(get_login)
+                self.guide_table.exec_()
             else:
                 print('no')
 
-    def sing_in(self):
-        pass
-
-    def test(self):
-        print(1)
+    def sign_in(self):
+        self.registation = Registration()
+        self.registation.exec_()
 
 
 def my_exception_hook(exctype, value, traceback):
