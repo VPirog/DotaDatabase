@@ -27,11 +27,11 @@ session = create_session()
 #     print(i)
 
 
-# if __name__ == "__main__":
-#     app = QApplication(sys.argv)
-#     ex = LoginScreen()
-#     ex.show()
-#     sys.exit(app.exec())
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    ex = LoginScreen()
+    ex.show()
+    sys.exit(app.exec())
 
 # async def main():
 #     await parsing_image("https://dota2.fandom.com/wiki/Category:Item_icons")

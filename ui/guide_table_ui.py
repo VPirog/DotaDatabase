@@ -2,6 +2,7 @@ import sys
 
 from PyQt5.QtCore import Qt, QModelIndex
 from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog, QMessageBox, QDialog, QTableWidgetItem
+
 import database
 from database import User, Guide
 from ui.select_guide_change_or_view_ui import SelectGuideChangeOrView
@@ -32,6 +33,7 @@ class GuideView(QDialog, Ui_Dialog):
     def load_table(self):
         self.table_is_changeable = False
         guides = self.session.query(Guide).all()
+        guides.sort()
         self.guide_table.setRowCount(0)
         for guide in guides:
             row_position = self.guide_table.rowCount()
@@ -48,7 +50,10 @@ class GuideView(QDialog, Ui_Dialog):
             tmp = QTableWidgetItem(str(guide.rating))
             tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
             self.guide_table.setItem(row_position, 3, tmp)
-        self.table_is_changeable = True
+            # tmp = QTableWidgetItem(QtGui.QPixmap(f":/Hero/{guide.hero.name}"))
+            # tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
+            # self.guide_table.setItem(row_position, 4, tmp)
+            # self.table_is_changeable = True
 
     def change_or_view_guide(self, index: QModelIndex):
         current_row = index.row()
@@ -72,3 +77,5 @@ sys._excepthook = sys.excepthook
 
 # Set the exception hook to our wrapping function
 sys.excepthook = my_exception_hook
+
+# TODO: поиск по гайдам (например вывод только имени), добавить до 100 записей, *сделтаь иконки хз че получится, *хеширование паролей, *страна, *уникальные логины

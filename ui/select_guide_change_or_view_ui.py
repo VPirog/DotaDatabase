@@ -4,7 +4,8 @@ import types
 
 from PyQt5 import QtCore
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMainWindow, QDialog, QLineEdit, QTableWidgetItem
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMainWindow, QDialog, QLineEdit, QTableWidgetItem, \
+    QMessageBox
 
 import database
 from database import Guide, global_init, create_session, Hero, UserRating, GuideCommentary, User
@@ -22,7 +23,7 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
         self.guide_structure = guide_structure
         self.session = create_session()
         self.old_guide = self.session.query(Guide).get(self.guide_structure.id)
-        # print(self.old_guide)
+        # print(type(self.old_guide))
         self.initUI()
 
     def initUI(self):
@@ -30,6 +31,7 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
         self.zapolnit_govno()
         self.quitButton.clicked.connect(self.quit)
         self.saveButton.clicked.connect(self.save)
+        self.pushButton_delete.clicked.connect(self.delete)
 
     def save(self):
         if self.login_structure.id == self.guide_structure.owner_user.id:
@@ -57,17 +59,50 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
             if isinstance(t, UserRating):
                 session.delete(t)
             session.add(rate)
+
+            guide_na_izmenenie = session.query(Guide).get(self.guide_structure.id)
+            bebra = session.query(UserRating).filter(UserRating.guide_id == rate.guide_id).all()
+            print(bebra)
+            guide_na_izmenenie.rating = 0.
+            for bebrik in bebra:
+                guide_na_izmenenie.rating += bebrik.rating
+                print(bebrik.rating)
+            guide_na_izmenenie.rating /= len(bebra)
             session.commit()
 
             session = create_session()
-            commnent = self.tableWidget.item(5, 0).text()
-            com = GuideCommentary(
-                user_id=self.login_structure.id,
-                guide_id=self.guide_structure.id,
-                commentary=commnent
-            )
-            session.add(com)
-            session.commit()
+            try:
+                commnent = self.tableWidget.item(5, 0).text()
+                com = GuideCommentary(
+                    user_id=self.login_structure.id,
+                    guide_id=self.guide_structure.id,
+                    commentary=commnent
+                )
+                session.add(com)
+                session.commit()
+            except:
+                pass
+
+            from ui import GuideView
+            self.tableWidget = GuideView(self.login_structure, self)
+            self.tableWidget.exec_()
+
+    def delete(self):
+        if self.login_structure.id == self.guide_structure.owner_user.id:
+            print(3)
+            self.session = create_session()
+            guide_na_udolenie = self.session.query(Guide).get(self.guide_structure.id)
+            self.session.delete(guide_na_udolenie)
+            self.session.commit()
+
+            from ui import GuideView
+            self.tableWidget = GuideView(self.login_structure, self)
+            self.tableWidget.exec_()
+        else:
+            QMessageBox.critical(self,
+                                 "Error",
+                                 'Не твой гайд',
+                                 QMessageBox.Cancel)
 
             from ui import GuideView
             self.tableWidget = GuideView(self.login_structure, self)
@@ -102,7 +137,8 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
         for row_pos, commentary_i in enumerate(tmp, start=6):
             self.tableWidget.insertRow(row_pos)
             item = QTableWidgetItem()
-            item.setText("Comment by " + session.query(User).filter(User.id == commentary_i.user_id).first().username.strip())
+            item.setText(
+                "Comment by " + session.query(User).filter(User.id == commentary_i.user_id).first().username.strip())
             self.tableWidget.setVerticalHeaderItem(row_pos, item)
             item = QTableWidgetItem()
             item.setText(commentary_i.commentary)

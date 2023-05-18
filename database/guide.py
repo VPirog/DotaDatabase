@@ -29,3 +29,6 @@ class Guide(Base):
 
     def __str__(self):
         return f"gaid {self.id}: {self.name} {self.description}"
+
+    def __lt__(self, other):
+        return self.id < other.id

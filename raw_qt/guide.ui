@@ -15,6 +15,21 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
+    <widget class="QLabel" name="user_name_label">
+     <property name="font">
+      <font>
+       <family>Unbounded</family>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>user</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QTableWidget" name="guide_table">
      <property name="minimumSize">
       <size>
@@ -72,21 +87,11 @@
        <string>rating</string>
       </property>
      </column>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLabel" name="user_name_label">
-     <property name="font">
-      <font>
-       <family>Unbounded</family>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>ArrowCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>user</string>
-     </property>
+     <column>
+      <property name="text">
+       <string>img</string>
+      </property>
+     </column>
     </widget>
    </item>
    <item>

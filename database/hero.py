@@ -24,4 +24,4 @@ class Hero(Base):
 
 
     def __str__(self):
-        return f"Герой {self.id}: {self.name}"
+        return f"{self.name}"

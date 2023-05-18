@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'select_guide.ui'
+# Form implementation generated from reading ui file 'raw_qt/select_guide.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -15,12 +15,15 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(567, 399)
+        self.gridLayout = QtWidgets.QGridLayout(Dialog)
+        self.gridLayout.setObjectName("gridLayout")
+        self.saveButton = QtWidgets.QPushButton(Dialog)
+        self.saveButton.setObjectName("saveButton")
+        self.gridLayout.addWidget(self.saveButton, 1, 0, 1, 1)
+        self.quitButton = QtWidgets.QPushButton(Dialog)
+        self.quitButton.setObjectName("quitButton")
+        self.gridLayout.addWidget(self.quitButton, 1, 2, 1, 1)
         self.tableWidget = QtWidgets.QTableWidget(Dialog)
-        font = QtGui.QFont()
-        font.setFamily("Unbounded Medium")
-        font.setPointSize(12)
-        self.tableWidget.setFont(font)
-        self.tableWidget.setGeometry(QtCore.QRect(0, 0, 541, 331))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(1)
         self.tableWidget.setRowCount(6)
@@ -39,16 +42,10 @@ class Ui_Dialog(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
         self.tableWidget.horizontalHeader().setDefaultSectionSize(440)
-        self.verticalSlider = QtWidgets.QSlider(Dialog)
-        self.verticalSlider.setGeometry(QtCore.QRect(540, 0, 24, 321))
-        self.verticalSlider.setOrientation(QtCore.Qt.Vertical)
-        self.verticalSlider.setObjectName("verticalSlider")
-        self.saveButton = QtWidgets.QPushButton(Dialog)
-        self.saveButton.setGeometry(QtCore.QRect(160, 350, 103, 36))
-        self.saveButton.setObjectName("saveButton")
-        self.quitButton = QtWidgets.QPushButton(Dialog)
-        self.quitButton.setGeometry(QtCore.QRect(300, 350, 103, 36))
-        self.quitButton.setObjectName("quitButton")
+        self.gridLayout.addWidget(self.tableWidget, 0, 0, 1, 3)
+        self.pushButton_delete = QtWidgets.QPushButton(Dialog)
+        self.pushButton_delete.setObjectName("pushButton_delete")
+        self.gridLayout.addWidget(self.pushButton_delete, 1, 1, 1, 1)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -56,6 +53,8 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        self.saveButton.setText(_translate("Dialog", "SAVE"))
+        self.quitButton.setText(_translate("Dialog", "QUIT"))
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("Dialog", "name"))
         item = self.tableWidget.verticalHeaderItem(1)
@@ -70,5 +69,4 @@ class Ui_Dialog(object):
         item.setText(_translate("Dialog", "commetaries"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("Dialog", "data"))
-        self.saveButton.setText(_translate("Dialog", "SAVE"))
-        self.quitButton.setText(_translate("Dialog", "QUIT"))
+        self.pushButton_delete.setText(_translate("Dialog", "DELETE"))
