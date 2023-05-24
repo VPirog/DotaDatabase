@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file './ui/register.ui'
+# Form implementation generated from reading ui file 'raw_qt/register.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -49,7 +49,7 @@ class Ui_Dialog(object):
         self.lineEdit_username.setMaximumSize(QtCore.QSize(16777215, 32))
         font = QtGui.QFont()
         font.setFamily("Unbounded")
-        font.setPointSize(12)
+        font.setPointSize(8)
         font.setBold(True)
         font.setUnderline(False)
         font.setWeight(75)
@@ -88,7 +88,7 @@ class Ui_Dialog(object):
         self.lineEdit_password.setMaximumSize(QtCore.QSize(16777215, 32))
         font = QtGui.QFont()
         font.setFamily("Unbounded")
-        font.setPointSize(12)
+        font.setPointSize(8)
         font.setBold(True)
         font.setUnderline(False)
         font.setWeight(75)
@@ -123,22 +123,14 @@ class Ui_Dialog(object):
         self.verticalLayout_8 = QtWidgets.QVBoxLayout()
         self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
-        self.lineEdit_country = QtWidgets.QLineEdit(self.frame_3)
-        self.lineEdit_country.setMaximumSize(QtCore.QSize(16777215, 32))
-        font = QtGui.QFont()
-        font.setFamily("Unbounded")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setUnderline(False)
-        font.setWeight(75)
-        font.setStrikeOut(False)
-        font.setKerning(True)
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.lineEdit_country.setFont(font)
-        self.lineEdit_country.setText("")
-        self.lineEdit_country.setFrame(False)
-        self.lineEdit_country.setObjectName("lineEdit_country")
-        self.verticalLayout_8.addWidget(self.lineEdit_country)
+        self.comboBox = QtWidgets.QComboBox(self.frame_3)
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.verticalLayout_8.addWidget(self.comboBox)
         self.horizontalLayout_4.addLayout(self.verticalLayout_8)
         self.verticalLayout_7.addLayout(self.horizontalLayout_4)
         self.verticalLayout_2.addWidget(self.frame_3)
@@ -155,7 +147,7 @@ class Ui_Dialog(object):
         self.pushButton_complite.setMaximumSize(QtCore.QSize(16777215, 32))
         font = QtGui.QFont()
         font.setFamily("Unbounded")
-        font.setPointSize(12)
+        font.setPointSize(8)
         font.setBold(True)
         font.setUnderline(False)
         font.setWeight(75)
@@ -178,5 +170,11 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         self.lineEdit_username.setPlaceholderText(_translate("Dialog", "Username"))
         self.lineEdit_password.setPlaceholderText(_translate("Dialog", "Password"))
-        self.lineEdit_country.setPlaceholderText(_translate("Dialog", "Country"))
+        self.comboBox.setPlaceholderText(_translate("Dialog", "Country"))
+        self.comboBox.setItemText(0, _translate("Dialog", "Russia"))
+        self.comboBox.setItemText(1, _translate("Dialog", "Belarus"))
+        self.comboBox.setItemText(2, _translate("Dialog", "Luxembourg"))
+        self.comboBox.setItemText(3, _translate("Dialog", "North Korea    "))
+        self.comboBox.setItemText(4, _translate("Dialog", "Niger"))
         self.pushButton_complite.setText(_translate("Dialog", "Complite"))
+

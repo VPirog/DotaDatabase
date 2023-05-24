@@ -1,10 +1,10 @@
 import sys
 
 from PyQt5.QtCore import Qt, QModelIndex
+from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog, QMessageBox, QDialog, QTableWidgetItem
-
 import database
-from database import User, Guide
+from database import User, Guide, Hero, create_session
 from ui.select_guide_change_or_view_ui import SelectGuideChangeOrView
 from ui.select_guide_create import CreateGuide
 from ui.ui_guide_table import Ui_Dialog
@@ -22,38 +22,72 @@ class GuideView(QDialog, Ui_Dialog):
     def initUI(self):
         database.global_init()
         self.session = database.create_session()
+        self.load_all()
         self.create_guide_bottom.clicked.connect(self.create_)
-        self.load_table()
+        self.search_pushButton.clicked.connect(self.search_by)
         self.guide_table.doubleClicked.connect(self.change_or_view_guide)
 
     def create_(self):
         self.open_create_guide = CreateGuide(self.login_structure, self)
         self.open_create_guide.exec_()
 
-    def load_table(self):
+    def load_all(self):
         self.table_is_changeable = False
-        guides = self.session.query(Guide).all()
+        get_guides = self.session.query(Guide).all()
+        self.loader(get_guides)
+
+    def loader(self, guides):
         guides.sort()
         self.guide_table.setRowCount(0)
         for guide in guides:
             row_position = self.guide_table.rowCount()
             self.guide_table.insertRow(row_position)
+            tmp = QTableWidgetItem()
+            hero_name = str(guide.hero).strip()
+            print(hero_name, f":/Hero/raw_hero/{hero_name}.png")
+            pixmap = QPixmap(f":/Hero/raw_hero/{hero_name} icon.png").scaled(60, 34)
+            tmp.setData(Qt.DecorationRole, pixmap)
+            self.guide_table.setItem(row_position, 0, tmp)
             tmp = QTableWidgetItem(str(guide.name))
             tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
-            self.guide_table.setItem(row_position, 0, tmp)
-            tmp = QTableWidgetItem(str(guide.hero))
-            tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
             self.guide_table.setItem(row_position, 1, tmp)
-            tmp = QTableWidgetItem(str(guide.description))
+            tmp = QTableWidgetItem(str(guide.hero))
             tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
             self.guide_table.setItem(row_position, 2, tmp)
             tmp = QTableWidgetItem(str(guide.rating))
             tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
             self.guide_table.setItem(row_position, 3, tmp)
-            # tmp = QTableWidgetItem(QtGui.QPixmap(f":/Hero/{guide.hero.name}"))
-            # tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
-            # self.guide_table.setItem(row_position, 4, tmp)
-            # self.table_is_changeable = True
+            tmp = QTableWidgetItem(str(guide.description))
+            tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
+            self.guide_table.setItem(row_position, 4, tmp)
+
+            self.table_is_changeable = True
+
+    def search_by(self):
+        dictionary = {'name': None,
+                      'hero': None,
+                      'rating': None,
+                      'description': None}
+
+        search_string = self.search_lineEdit.text()
+        pairs = search_string.split()
+        for pair in pairs:
+            key, value = pair.split(":")
+            if key in dictionary:
+                dictionary[key] = value
+        print(dictionary)
+        get_guides = self.session.query(Guide)
+        if dictionary['name'] != None:
+            get_guides = get_guides.filter(Guide.name == dictionary['name'])
+        if dictionary['hero'] != None:
+            session = create_session()
+            hero = session.query(Hero).filter(Hero.name == dictionary['hero']).first()
+            get_guides = get_guides.filter(Guide.hero_id == hero.id)
+        if dictionary['rating'] != None:
+            get_guides = get_guides.filter(Guide.rating == dictionary['rating'])
+        if dictionary['description'] != None:
+            get_guides = get_guides.filter(Guide.description == dictionary['description'])
+        self.loader(get_guides.all())
 
     def change_or_view_guide(self, index: QModelIndex):
         current_row = index.row()
@@ -61,7 +95,7 @@ class GuideView(QDialog, Ui_Dialog):
         guide_structure = self.session.query(Guide).filter(Guide.name == str(row_name).strip()).first()
         self.open_change_or_view_guide = SelectGuideChangeOrView(self.login_structure, self, guide_structure)
         self.open_change_or_view_guide.exec_()
-        self.load_table()
+        self.load_all()
 
 
 def my_exception_hook(exctype, value, traceback):
@@ -78,4 +112,4 @@ sys._excepthook = sys.excepthook
 # Set the exception hook to our wrapping function
 sys.excepthook = my_exception_hook
 
-# TODO: поиск по гайдам (например вывод только имени), добавить до 100 записей, *сделтаь иконки хз че получится, *хеширование паролей, *страна, *уникальные логины
+# TODO: добавить до 100 записей, *хеширование паролей, *страна+-

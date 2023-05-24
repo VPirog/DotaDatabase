@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="Login">
+    <file>Search.png</file>
     <file>Regional Settings.png</file>
     <file>User Accounts.png</file>
     <file>Key.png</file>
@@ -42,6 +43,7 @@
     <file>raw_hero/Skeleton King icon.png</file>
     <file>raw_hero/Silencer icon.png</file>
     <file>raw_hero/Shadow Shaman icon.png</file>
+    <file>raw_hero/Abaddon icon.png</file>
     <file>raw_hero/Shadow Fiend icon.png</file>
     <file>raw_hero/Shadow Demon icon.png</file>
     <file>raw_hero/Sand King icon.png</file>

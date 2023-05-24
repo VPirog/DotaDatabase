@@ -35,32 +35,32 @@
      </attribute>
      <row>
       <property name="text">
-       <string>name</string>
+       <string>Name</string>
       </property>
      </row>
      <row>
       <property name="text">
-       <string>hero</string>
+       <string>Hero</string>
       </property>
      </row>
      <row>
       <property name="text">
-       <string>rating</string>
+       <string>Rating</string>
       </property>
      </row>
      <row>
       <property name="text">
-       <string>description</string>
+       <string>Description</string>
       </property>
      </row>
      <row>
       <property name="text">
-       <string>main_text</string>
+       <string>Main text</string>
       </property>
      </row>
      <row>
       <property name="text">
-       <string>commetaries</string>
+       <string>Your Comment</string>
       </property>
      </row>
      <column>

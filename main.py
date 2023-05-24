@@ -1,3 +1,4 @@
+import hashlib
 import sys
 
 from PyQt5.QtGui import QFont
@@ -25,6 +26,24 @@ session = create_session()
 # users = session.query(Hero).all()
 # for i in users:
 #     print(i)
+
+
+# password = "my_password"
+# saved_hashed_password = "f6e248ea994f3e342f61141b8b8e3ede86d4de53257abc8d06ae07a1da73fb39"
+#
+# # Создание объекта хеша
+# hash_object = hashlib.sha256()
+#
+# # Кодирование пароля в байтовую строку и хеширование
+# hash_object.update(password.encode("utf-8"))
+# hashed_password = hash_object.hexdigest()
+# print(hashed_password)
+#
+# # Сравнение хешей
+# if hashed_password == saved_hashed_password:
+#     print("Пароль верен")
+# else:
+#     print("Пароль неверен")
 
 
 if __name__ == "__main__":

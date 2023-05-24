@@ -10,7 +10,7 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     username = Column(CHAR(99), nullable=False)
     password = Column(CHAR(20), nullable=False)
-    country = Column(Integer, nullable=False)
+    country = Column(CHAR(20), nullable=False)
     # TODO: страны числа это какой крин дж
 
     userS_rating = relationship("UserRating", back_populates="user_rating")
