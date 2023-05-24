@@ -44,24 +44,32 @@ class GuideView(QDialog, Ui_Dialog):
             self.guide_table.insertRow(row_position)
             tmp = QTableWidgetItem()
             hero_name = str(guide.hero).strip()
-            print(hero_name, f":/Hero/raw_hero/{hero_name}.png")
+            # print(hero_name, f":/Hero/raw_hero/{hero_name}.png")
             pixmap = QPixmap(f":/Hero/raw_hero/{hero_name} icon.png").scaled(60, 34)
             tmp.setData(Qt.DecorationRole, pixmap)
             self.guide_table.setItem(row_position, 0, tmp)
+
             tmp = QTableWidgetItem(str(guide.name))
             tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
             self.guide_table.setItem(row_position, 1, tmp)
+            self.guide_table.setColumnWidth(1, 150)
+
             tmp = QTableWidgetItem(str(guide.hero))
             tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
             self.guide_table.setItem(row_position, 2, tmp)
+            self.guide_table.setColumnWidth(2, 100)
+
             tmp = QTableWidgetItem(str(guide.rating))
+            tmp.setTextAlignment(Qt.AlignHCenter)
             tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
             self.guide_table.setItem(row_position, 3, tmp)
+            self.guide_table.setColumnWidth(3, 40)
+
             tmp = QTableWidgetItem(str(guide.description))
             tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
             self.guide_table.setItem(row_position, 4, tmp)
 
-            self.table_is_changeable = True
+        self.table_is_changeable = True
 
     def search_by(self):
         dictionary = {'name': None,
@@ -75,7 +83,7 @@ class GuideView(QDialog, Ui_Dialog):
             key, value = pair.split(":")
             if key in dictionary:
                 dictionary[key] = value
-        print(dictionary)
+        # print(dictionary)
         get_guides = self.session.query(Guide)
         if dictionary['name'] != None:
             get_guides = get_guides.filter(Guide.name == dictionary['name'])
@@ -91,8 +99,9 @@ class GuideView(QDialog, Ui_Dialog):
 
     def change_or_view_guide(self, index: QModelIndex):
         current_row = index.row()
-        row_name = self.guide_table.item(current_row, 0).text()
+        row_name = self.guide_table.item(current_row, 1).text()
         guide_structure = self.session.query(Guide).filter(Guide.name == str(row_name).strip()).first()
+        # print(guide_structure)
         self.open_change_or_view_guide = SelectGuideChangeOrView(self.login_structure, self, guide_structure)
         self.open_change_or_view_guide.exec_()
         self.load_all()

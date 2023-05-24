@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMainWindow, QDi
 import database
 from database import Guide, global_init, create_session, Hero
 
-from .select_guide import Ui_Dialog
+from .ui_select_guide import Ui_Dialog
 
 
 class CreateGuide(QDialog, Ui_Dialog):

@@ -10,7 +10,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMainWindow, QDi
 import database
 from database import Guide, global_init, create_session, Hero, UserRating, GuideCommentary, User
 
-from .select_guide import Ui_Dialog
+from .ui_select_guide import Ui_Dialog
 
 
 class SelectGuideChangeOrView(QDialog, Ui_Dialog):
@@ -53,7 +53,6 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
                 guide_id=self.guide_structure.id,
                 rating=rating
             )
-            # TODO: Удалять старую оценку и создавать новую оценку ВСЕГДА и тогда обновлять рейтинг всех(?) гайдов
             t = session.query(UserRating).filter(UserRating.user_id == rate.user_id,
                                                  UserRating.guide_id == rate.guide_id).first()
             if isinstance(t, UserRating):
@@ -62,11 +61,11 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
 
             guide_na_izmenenie = session.query(Guide).get(self.guide_structure.id)
             bebra = session.query(UserRating).filter(UserRating.guide_id == rate.guide_id).all()
-            print(bebra)
+            # print(bebra)
             guide_na_izmenenie.rating = 0.
             for bebrik in bebra:
                 guide_na_izmenenie.rating += bebrik.rating
-                print(bebrik.rating)
+                # print(bebrik.rating)
             guide_na_izmenenie.rating /= len(bebra)
             session.commit()
 
@@ -89,7 +88,6 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
 
     def delete(self):
         if self.login_structure.id == self.guide_structure.owner_user.id:
-            print(3)
             self.session = create_session()
             guide_na_udolenie = self.session.query(Guide).get(self.guide_structure.id)
             self.session.delete(guide_na_udolenie)
@@ -127,8 +125,9 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
         item.setText(self.guide_structure.description)
         self.tableWidget.setItem(3, 0, item)
         item = QTableWidgetItem()
-        item.setText(self.guide_structure.main_text)
+        item.setText(self.guide_structure.main_text.strip())
         self.tableWidget.setItem(4, 0, item)
+
 
         session = create_session()
         tmp = session.query(GuideCommentary.guide_id, GuideCommentary.user_id, GuideCommentary.commentary).filter(
@@ -138,7 +137,7 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
             self.tableWidget.insertRow(row_pos)
             item = QTableWidgetItem()
             item.setText(
-                "Comment by " + session.query(User).filter(User.id == commentary_i.user_id).first().username.strip())
+                "User " + session.query(User).filter(User.id == commentary_i.user_id).first().username.strip())
             self.tableWidget.setVerticalHeaderItem(row_pos, item)
             item = QTableWidgetItem()
             item.setText(commentary_i.commentary)
