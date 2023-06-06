@@ -7,6 +7,7 @@ Base = dec.declarative_base()
 
 __factory = None
 
+
 config = configparser.ConfigParser()
 config.read('config/config.ini')
 
@@ -17,18 +18,18 @@ database_password = config['database']['password']
 database_name = config['database']['name']
 
 
-def global_init(host=database_host, port=database_port, user=database_username, password=database_password,
-                db_name=database_name):
+def global_init(
+        host=database_host, port=database_port, user=database_username, password=database_password,
+        db_name=database_name
+):
     global __factory
 
     if __factory:
         return
 
-    if not db_name:
-        raise AttributeError("Не задано имя файлы файла базы данных")
-
     connection_string = f'postgresql://{user}:{password}@{host}:{port}/{db_name}'
-    print(f"Подключение к БД: {connection_string}")
+    # connection_string = f'postgresql://VPirog:QqPWDom5p8sR@ep-green-sunset-942649.eu-central-1.aws.neon.tech/neondb'
+    # print(f"Подключение к БД: {connection_string}")
 
     engine = sa.create_engine(connection_string, echo=0)
     # engine = sa.create_engine(connection_string)
@@ -38,6 +39,3 @@ def global_init(host=database_host, port=database_port, user=database_username, 
 
 def create_session():
     return __factory()
-
-
-

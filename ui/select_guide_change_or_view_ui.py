@@ -61,7 +61,7 @@ class SelectGuideChangeOrView(QDialog, Ui_Dialog):
 
             guide_na_izmenenie = session.query(Guide).get(self.guide_structure.id)
             bebra = session.query(UserRating).filter(UserRating.guide_id == rate.guide_id).all()
-            # print(bebra)
+            print(bebra)
             guide_na_izmenenie.rating = 0.
             for bebrik in bebra:
                 guide_na_izmenenie.rating += bebrik.rating

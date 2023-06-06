@@ -4,7 +4,7 @@ from PyQt5.QtCore import Qt, QModelIndex
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QMainWindow, QApplication, QInputDialog, QMessageBox, QDialog, QTableWidgetItem
 import database
-from database import User, Guide, Hero, create_session
+from database import User, Guide, Hero, create_session, UserRating
 from ui.select_guide_change_or_view_ui import SelectGuideChangeOrView
 from ui.select_guide_create import CreateGuide
 from ui.ui_guide_table import Ui_Dialog
@@ -68,6 +68,7 @@ class GuideView(QDialog, Ui_Dialog):
             tmp = QTableWidgetItem(str(guide.description))
             tmp.setFlags(tmp.flags() & ~Qt.ItemIsEditable)
             self.guide_table.setItem(row_position, 4, tmp)
+
 
         self.table_is_changeable = True
 
